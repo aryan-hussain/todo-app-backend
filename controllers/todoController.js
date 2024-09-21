@@ -6,8 +6,8 @@ exports.getTodos = async (req, res) => {
 };
 
 exports.addTodo = async (req, res) => {
-  const { title } = req.body;
-  const todo = await Todo.create({ title, user: req.user.id });
+  const { title, status, description, dueDate } = req.body;
+  const todo = await Todo.create({ title, user: req.user.id, status, description, dueDate });
   res.status(201).json(todo);
 };
 
